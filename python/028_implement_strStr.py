@@ -11,6 +11,7 @@ class Solution(object):
                 return i
         return -1
 
+
 if __name__ == '__main__':
     s = Solution()
     print(s.strStr("hello", "ll"))
