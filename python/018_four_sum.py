@@ -34,4 +34,7 @@ class Solution:
 
 if __name__ == "__main__":
     s = Solution()
-    print(s.fourSum([1, 0, -1, 0, -2, 2], 0))
+    nums = [1, 0, -1, 0, -2, 2]
+    nums2 = [1, 2, 3, 4]
+    target = 0
+    print(s.fourSum(nums, target))
