@@ -1,37 +1,51 @@
 #include "header.h"
 using namespace std;
 
+
 class Solution {
 public:
     int divide(int dividend, int divisor) {
-        long int abs_d1 = abs(dividend);
-        long int abs_d2 = abs(divisor);
-        if (abs_d1 < abs_d2) return 0;
-
-        int r = abs_d1;
-        int ans = 1;
-        int temp = abs_d2;
-
-        while ((r >> 1) > abs_d2) {
-            r >>= 1; // 由于不能用除法，使用二进制移位实现 << i: 乘2的i次方； >> 除2的i次方
-            ans <<= 1;
-            temp <<= 1;
+        if(dividend == INT32_MIN && divisor == -1)
+                return INT32_MAX;
+        
+        long _divisor = labs(divisor);
+        long _dividend = labs(dividend);
+        
+        int sign = dividend > 0 ^ divisor > 0 ? -1 : 1;  
+        /* Bitwise exclusive OR
+        0 ^ 0 = 0;
+        0 ^ 1 = 1; 
+        1 ^ 0 = 1; 
+        1 ^ 1 = 0
+        */
+        int count = 0;
+        long temp;
+        long sol = 0;
+        while(_dividend >= _divisor)
+        {
+            count = 1;
+            temp = _divisor;
+            while(temp << 1 <= _dividend)
+            {
+                temp = temp << 1;  // 由于不能用除法，使用二进制移位实现 << i: 乘2的i次方； >> 除2的i次方
+                count = count << 1;
+            }
+            sol += count;
+            _dividend -= temp;
         }
-        int res = abs_d1 - temp;
-        if (res > abs_d2) {
-            ans += 1;
-        }
-
-        if ((dividend*divisor) < 0) return -ans; 
-        return ans;
+        if(sol > INT32_MAX || sol < INT32_MIN)  // overflow 问题
+            return INT32_MAX;
+        return sign == 1 ? sol : -sol;
     }
 };
 
+
 int main() {
     Solution s;
-    int dividend = 10;
-    int divisor = 3;
+    // int dividend = -2147483648;
+    int dividend = 2147483647;
+    // int dividend = 10;
+    int divisor = 1;
+    // int divisor = 3;
     cout << s.divide(dividend, divisor) << endl;
-
-
 }

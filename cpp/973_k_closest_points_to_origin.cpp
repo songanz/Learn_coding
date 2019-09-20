@@ -10,7 +10,8 @@ public:
             temp = make_pair(points[i][0] * points[i][0] + points[i][1] * points[i][1], i);
             toSort.push_back(temp);
         }
-        sort(toSort.begin(), toSort.end());  // to sort the vector elements on the basis of first element of pairs in ascending order
+        // 对pair的第一个element升序排列vector
+        sort(toSort.begin(), toSort.end());
         vector< vector<int> > ans;
         for (int i=0; i < K; i++){
             ans.push_back(points[toSort[i].second]);
