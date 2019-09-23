@@ -34,6 +34,11 @@ int main(){
     int *temp;  // pptr 的值也是个地址
     temp = *pptr; // 会发现等于 ptr 
 
+    // 错误的代码
+    vector<char> t;
+    // t.push_back("1");  // 必须给*"1"
+    t.push_back(*"1");
+
     cout << "Value of ptr :   " << ptr << endl;
     cout << "Value of *pptr : " << temp << endl;
     cout << "Value of &ptr :  " << pptr << endl;
