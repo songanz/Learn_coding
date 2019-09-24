@@ -43,11 +43,11 @@ int main(){
     int *temp;  // pptr 的值也是个地址
     temp = *pptr; // 会发现等于 ptr 
 
-    // 错误的代码
+    // 单引号 vs 双引号
     vector<char> t;
     // t.push_back("1");  // 必须给*"1"
-    t.push_back(*"1");  // 双引号是返回指针
-    t.push_back('1');   // 单引号返回数值
+    t.push_back(*"1");  // 双引号是字符串 string, 相当与一个指针指向字符，
+    t.push_back('1');   // 单引号返回char
 
     cout << "Value of ptr :   " << ptr << endl;
     cout << "Value of *pptr : " << temp << endl;
@@ -56,5 +56,15 @@ int main(){
     cout << "Value of var :" << var << endl;
     cout << "Value of val :" << val << endl;
     cout << "Value of rvar :" << rvar << endl;
-    
+
+    // create priority queue on end time
+    // 如果要用到小顶堆(升序)，则一般要把模板的3个参数都带进去
+    // STL里面定义了一个仿函数greater<>，基本类型可以用这个仿函数声明小顶堆
+    // 如果不定义就是降序
+    priority_queue<int, vector<int>, greater<int> > pq;
+    pq.push(10);
+    pq.push(9);
+    pq.push(8);
+    pq.push(7);
+    pq.push(6);
 }

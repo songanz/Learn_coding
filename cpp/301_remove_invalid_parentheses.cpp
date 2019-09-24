@@ -55,6 +55,6 @@ private:
 
  int main() {
     Solution s;
-    string ss = "()())()";
+    string ss = "()())()";  //双引号表示字符串
     cout << s.removeInvalidParentheses(ss)[0] << endl;
  }

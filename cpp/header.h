@@ -9,5 +9,6 @@
 #include <stdint.h>  // for INT32_MAX in 004
 #include <limits>
 #include <map>  // 必须掌握的数据结构
+#include <queue>  // priority queue
 
 #endif
