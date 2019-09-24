@@ -1,6 +1,6 @@
 #include "header.h"
 using namespace std;
-
+// bitwise operator
 
 class Solution {
 public:
