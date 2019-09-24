@@ -10,5 +10,7 @@
 #include <limits>
 #include <map>  // 必须掌握的数据结构
 #include <queue>  // priority queue
+#include <list>
+#include <unordered_map>  // for lru_cache
 
 #endif
