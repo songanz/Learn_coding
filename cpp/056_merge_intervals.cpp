@@ -9,8 +9,6 @@ public:
         // sort starting time
         sort(intervals.begin(), intervals.end());
         // store end time
-        priority_queue<int, vector<int>, greater<int> > pq;
-        pq.push(intervals[0][1]);
         vector< vector<int> > ans;
         int start = intervals[0][0];
         int end = intervals[0][1];
@@ -25,11 +23,14 @@ public:
                 end = intervals[i][1];
             }
         }
+        ans.push_back({start, end});
+        return ans;
     }
 };
 
 int main() {
     vector< vector<int> > intervals;
     Solution s;
-    cout << s.merge(intervals)[0][0] << endl;
+    intervals = {{1,3}, {2,6}, {8, 10}, {15, 18}};
+    cout << s.merge(intervals)[0][1] << endl;
 }
