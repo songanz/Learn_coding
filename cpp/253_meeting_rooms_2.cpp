@@ -17,7 +17,7 @@ public:
         // STL里面定义了一个仿函数greater<>，基本类型可以用这个仿函数声明小顶堆
         // 如果不定义就是降序
         priority_queue<int, vector<int>, greater<int> > pq;
-        pq.push(intervals[0][1]);
+        pq.push(intervals[0][1]);  // using end time
         int s = pq.size();
         res = max(res, s);
         for (int i=1; i<n; ++i) {
