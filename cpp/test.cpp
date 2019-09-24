@@ -37,7 +37,8 @@ int main(){
     // 错误的代码
     vector<char> t;
     // t.push_back("1");  // 必须给*"1"
-    t.push_back(*"1");
+    t.push_back(*"1");  // 双引号是返回指针
+    t.push_back('1');   // 单引号返回数值
 
     cout << "Value of ptr :   " << ptr << endl;
     cout << "Value of *pptr : " << temp << endl;

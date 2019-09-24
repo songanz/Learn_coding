@@ -1,7 +1,3 @@
-#include "header.h"
-using namespace std;
-
-// DFS
 class Solution {
 public:
     int numIslands(vector< vector<char> >& grid) {
@@ -11,7 +7,7 @@ public:
         int ans = 0;
         for (int y=0; y<m; ++y) {
             for (int x=0; x<n; ++x) {
-                ans += grid[y][x] - '0';
+                ans += grid[y][x];
                 dfs(grid, x, y, m, n);
             }
         }
@@ -28,24 +24,3 @@ private:
         dfs(grid, x, y-1, m, n);
     }
 };
-
-int main() {
-    Solution s;
-    vector< vector<char> > grid;
-    vector<char> temp = {*"1", *"1", *"1", *"1", *"0"};
-    grid.push_back(temp);
-
-    temp.clear();
-    temp = {*"1", *"1", *"0", *"1", *"0"};
-    grid.push_back(temp);
-
-    temp.clear();
-    temp = {*"1", *"1", *"0", *"0", *"0"};
-    grid.push_back(temp);
-
-    temp.clear();
-    temp = {*"0", *"0", *"0", *"0", *"0"};
-    grid.push_back(temp);
-
-    cout << s.numIslands(grid) << endl;
-}
