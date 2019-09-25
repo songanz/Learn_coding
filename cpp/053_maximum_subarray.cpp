@@ -1,6 +1,7 @@
 #include "header.h"
 using namespace std;
 
+// DP
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
