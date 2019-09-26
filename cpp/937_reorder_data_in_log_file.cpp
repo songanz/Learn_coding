@@ -4,12 +4,14 @@ using namespace std;
 class Solution {
 public:
     vector<string> reorderLogFiles(vector<string>& logs) {
-        vector< pair<char, string> > string_log;
+        vector< pair<string, string> > string_log;
         vector<string> ans;
         for (auto log : logs) {
             int ind = log.find(" ", 0);
             if (isdigit(log[ind+1])) ans.push_back(log);
-            else string_log.push_back({log[ind+1], log});
+            else {
+                string_log.push_back({log.substr(ind+1), log});
+            }
         }
         sort(string_log.begin(), string_log.end());
         for (int i=0; i<string_log.size(); ++i) {
