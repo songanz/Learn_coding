@@ -12,5 +12,6 @@
 #include <queue>  // priority queue
 #include <list>
 #include <unordered_map>  // for lru_cache
+#include <set>
 
 #endif
