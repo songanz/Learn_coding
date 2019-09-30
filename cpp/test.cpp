@@ -1,6 +1,11 @@
 #include "header.h"
 using namespace std;
 
+struct Triangle {  // 习惯: struct start with capital letter
+  double a,b,c;  // those are members. No memory allocated yet!!!
+  string name;  // those are members. No memory allocated yet!!!
+};
+
 int main(){
     int  var;
     int  *ptr;  // 表示这个变量是一个指针
@@ -49,13 +54,13 @@ int main(){
     t.push_back(*"1");  // 双引号是字符串 string, 相当与一个指针指向字符，
     t.push_back('1');   // 单引号返回char
 
-    cout << "Value of ptr :   " << ptr << endl;
-    cout << "Value of *pptr : " << temp << endl;
-    cout << "Value of &ptr :  " << pptr << endl;
+    cout << "Value of ptr :   " << ptr << "\n";  // use "\n" instead of endl will hold and print when ready
+    cout << "Value of *pptr : " << temp << "\n";  // therefore quicker
+    cout << "Value of &ptr :  " << pptr << "\n";
 
-    cout << "Value of var :" << var << endl;
-    cout << "Value of val :" << val << endl;
-    cout << "Value of rvar :" << rvar << endl;
+    cout << "Value of var :" << var << "\n";
+    cout << "Value of val :" << val << "\n";
+    cout << "Value of rvar :" << rvar << "\n";
 
     // create priority queue on end time
     // 如果要用到小顶堆(升序)，则一般要把模板的3个参数都带进去
@@ -67,4 +72,9 @@ int main(){
     pq.push(8);
     pq.push(7);
     pq.push(6);
+
+    Triangle t1;
+    t1.a = 3;  // member access using dot
+    Triangle t2 = {3,4,5,"lalala"};  // 另一种initialize的方法
+    Triangle t3 = t2;  // actrual copy the data并不像array一样 (copy the pointer)
 }
