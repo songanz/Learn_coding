@@ -23,8 +23,8 @@ public:
         if (ranks_[pv] > ranks_[pu]) parents_[pu] =pv;
         else if (ranks_[pv] < ranks_[pu]) parents_[pv] = pu;
         else {
-            parents_[pv] = pu;
-            ranks_[pv] += 1;
+            parents_[pu] = pv;
+            ranks_[pv]++;
         }
         return true;
     }
