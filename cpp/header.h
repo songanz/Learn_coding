@@ -13,5 +13,6 @@
 #include <list>
 #include <unordered_map>  // for lru_cache
 #include <set>
+#include <stack>
 
 #endif
