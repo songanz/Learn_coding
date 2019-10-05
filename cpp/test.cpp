@@ -6,6 +6,10 @@ struct Triangle {  // 习惯: struct start with capital letter
   string name;  // those are members. No memory allocated yet!!!
 };
 
+bool compare_x (vector<int> &v1, vector<int> &v2) {
+  return (v1[0] < v2[0]);
+}
+
 int main(){
     int  var;
     int  *ptr;  // 表示这个变量是一个指针
@@ -77,4 +81,8 @@ int main(){
     t1.a = 3;  // member access using dot
     Triangle t2 = {3,4,5,"lalala"};  // 另一种initialize的方法
     Triangle t3 = t2;  // actrual copy the data并不像array一样 (copy the pointer)
+
+    vector< vector<int> > v = {{3,9,10}, {2,7,15}, {5,12,12}, {15,20,10}};
+    sort(v.begin(), v.end(), compare_x);
+    cout << v[0][0] << '\n';
 }
