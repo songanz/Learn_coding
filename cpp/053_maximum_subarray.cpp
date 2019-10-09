@@ -10,6 +10,7 @@ public:
         f[0] = nums[0];
 
         for (int i=1; i<n; ++i) {
+            // 如果前面加起来还不如num[i]，那就重新开始算
             f[i] = max(f[i-1] + nums[i], nums[i]);
         }
         return *max_element(f.begin(),f.end());
