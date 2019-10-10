@@ -3,20 +3,20 @@ using namespace std;
 
 class Solution {
 public:
-    int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
+    int uniquePathsWithObstacles(vector< vector<int> >& obstacleGrid) {
         int n = obstacleGrid.size();
         if (n == 0) return 0;
         int m = obstacleGrid[0].size();
         
         // f[i][j] = paths(i, j)
         // INT_MIN -> not solved yet, solution unknown
-        f_ = vector<vector<int>>(n + 1, vector<int>(m + 1, INT32_MIN));        
+        f_ = vector< vector<int> >(n + 1, vector<int>(m + 1, INT32_MIN));        
         return paths(m, n, obstacleGrid);
     }
 private:
-    vector<vector<int>> f_;
+    vector< vector<int> > f_;
     
-    int paths(int x, int y, const vector<vector<int>>& o) {
+    int paths(int x, int y, const vector< vector<int> >& o) {
         // Out of bound, return 0.
         if (x <= 0 || y <= 0) return 0;
         
