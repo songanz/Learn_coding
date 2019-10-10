@@ -1,7 +1,7 @@
 #include "header.h"
 using namespace std;
 
-// DFS & BFS
+// DFS
 class Solution{
 public:
     vector<string> removeInvalidParentheses(string& s) {

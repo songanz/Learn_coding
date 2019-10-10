@@ -21,7 +21,7 @@ private:
             ans.push_back(cur);
             return;
             }
-        int num = digits[cur.size()]-'0';
+        int num = digits[cur.size()]-'0';  // 小心记得转int
         for (char s : m_[num]) {
             cur += s;
             dfs(digits, ans, cur, m_);
