@@ -12,11 +12,11 @@ struct TreeNode {
 
 class Solution {
 public:
-    bool isSameTree(TreeNode* p, TreeNode* q) {
-        if (!p ^ !q) return false;
-        if (!p && !q) return true;
-        if (p->val != q->val) return false;
-        return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
+    bool isUnivalTree(TreeNode* root) {
+        if (!root) return true;
+        if (root->left && root->val != root->left->val) return false;
+        if (root->right && root->val != root->right->val) return false;
+        return isUnivalTree(root->left) && isUnivalTree(root->right);
     }
 };
 

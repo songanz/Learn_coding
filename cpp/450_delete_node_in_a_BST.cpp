@@ -7,6 +7,12 @@ struct TreeNode {
     TreeNode *left;
     TreeNode *right;
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+    ~TreeNode() {
+      delete left;
+      delete right;
+      left = nullptr;
+      right = nullptr;
+    }
 };
 
 
@@ -27,7 +33,7 @@ public:
       } else {  // 有一边没有子列
         TreeNode* new_root = root->left == nullptr ? root->right : root->left;
         root->left = root->right = nullptr;  // avoid recursive deconstruct
-        delete root;
+        delete root;  // 释放
         return new_root;
       }
     }    
