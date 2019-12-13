@@ -1,4 +1,4 @@
-# include "header.h"
+# include "../header.h"
 using namespace std;
 
 /*
@@ -12,13 +12,15 @@ public:
         if (words.size() == 0) return "";
         // else do a topology sort --> build an indegree map
         unordered_map<char, int> m1;
+        // build a map from a char to all the chars ranked behind it
+        unordered_map< char, multiset<char> > m2;
         for (auto word : words) {
             for (auto ch : word) {
                 m1[ch] = 0;  // initalize indegree map
+                m2[ch] = multiset<char>{};
             }
         }
-        // build a map from a char to all the chars ranked behind it
-        unordered_map< char, multiset<char> > m2;
+       
         // get the degree from adjacent words
         for (int i=1; i<words.size(); i++) {
             int indx = 0;
@@ -52,11 +54,13 @@ public:
 int main() {
     Solution s;
     vector<string> words;
-    words.push_back("wrt");
-    words.push_back("wrf");
-    words.push_back("er");
-    words.push_back("ett");
-    words.push_back("rftt");
-
+    // words.push_back("wrt");
+    // words.push_back("wrf");
+    // words.push_back("er");
+    // words.push_back("ett");
+    // words.push_back("rftt");
+    words.push_back("z");
+    words.push_back("z");
+    
     cout << s.alienOrder(words) << '\n';
 }

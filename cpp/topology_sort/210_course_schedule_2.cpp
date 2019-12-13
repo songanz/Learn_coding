@@ -1,16 +1,17 @@
-#include "../header.h"
+#include "header.h"
 using namespace std;
 
 class Solution {
 public:
     vector<int> findOrder(int n, vector<vector<int>>& pre) {
-        if (n == 0 || pre.size() == 0) return vector<int>();
+        if (n == 0) return vector<int>();
+        if (n == 1) return vector<int>{0};
         unordered_map <int, int> indegree;
         unordered_map < int, multiset<int> > courseMap;
         for (int i=0; i<n; i++) indegree[i] = 0;
         for (int i=0; i<pre.size(); i++) {
             indegree[pre[i][0]]++;
-            courseMap[pre[i][1]].insert(pre[i][1]);
+            courseMap[pre[i][1]].insert(pre[i][0]);
         }
         
         vector<int> ans;
@@ -21,8 +22,8 @@ public:
                     course = v.first;
                     break;
                 }
-                if (course == -1) return vector<int>();
             }
+            if (course == -1) return vector<int>();
             ans.push_back(course);
             indegree[course]--;
             for (auto v: courseMap[course]) indegree[v]--;
