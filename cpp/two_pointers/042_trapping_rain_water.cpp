@@ -1,6 +1,6 @@
-#include "header.h"
+#include "../header.h"
 using namespace std;
-// 双指针
+// two pointer
 
 class Solution {
 public:
