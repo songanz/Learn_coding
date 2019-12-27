@@ -1,0 +1,51 @@
+A. Data Structure
+
+1. Array
+2. String
+3. Linked List
+4. Hash Table
+5. Ordered Map
+6. Stack
+7. Heap
+8. Tree
+8.1 Basic Tree
+8.2 Binary Indexed Tree
+8.3 Binary Search Tree (BST)
+8.4 Segment Tree
+
+
+B. Basic Algorithm
+
+1. Recursion
+2. Divide and Conquer
+3. Math
+4. Two Pointers
+5. Search
+5.1 Basic Search
+5.2 Binary Search
+5.3 Depth-first Search (DFS)
+5.4 Breadth-first Search (BFS)
+5.5 Union Find Set (UFS)
+6. Sort
+6.1 Basic Sort
+6.2 Topological Sort
+7. Dynamic Programing (DP)
+8. Design
+9. Graph
+9.1 Geometry
+10. Queue
+
+
+C. Advance Algorithm
+
+1. Backtracking
+2. Greedy
+3. Trie
+4. Brainteaser
+5. Memoization
+6. Minimax
+7. Reservoir Sampling
+8. Rejection Sampling
+9. Random
+10. Sliding Window
+11. Line Sweep
