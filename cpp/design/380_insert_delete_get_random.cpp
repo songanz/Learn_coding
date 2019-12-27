@@ -1,4 +1,4 @@
-#include "header.h"
+#include "../header.h"
 using namespace std;
 
 // 题目要求O(1): hashtable 强暗示 使用基础数据类型unordered_map，不是map(对应红黑树)！！！
