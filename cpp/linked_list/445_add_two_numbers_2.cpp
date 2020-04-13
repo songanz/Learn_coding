@@ -7,9 +7,58 @@ struct ListNode {
     ListNode(int x) : val(x), next(NULL) {}
 };
 
+// 利用stack后进先出的数据结构
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        stack<int> list1;
+        stack<int> list2;
+        
+        while (l1) {
+            list1.push(l1->val);
+            l1 = l1->next;
+        }
+        
+        while (l2) {
+            list2.push(l2->val);
+            l2 = l2->next;
+        }
+        
+        ListNode* header = new ListNode(0);
+        int res = 0;
+        while (!list1.empty() || !list2.empty()) {
+            int n1 = list1.empty() ? 0 : list1.top();
+            int n2 = list2.empty() ? 0 : list2.top();
+            
+            int val = n1 + n2 + res;
+            
+            if (val >= 10) {
+                // insert node right after the header
+                ListNode* temp = new ListNode(val-10);
+                temp->next = header->next;
+                header->next = temp;
+                res = 1;
+            }
+            else {
+                ListNode* temp = new ListNode(val);
+                temp->next = header->next;
+                header->next = temp;
+                res = 0;
+            }
+            if (!list1.empty()) list1.pop();
+            if (!list2.empty()) list2.pop();
+        }
+        
+        if (res != 0) {
+            ListNode* temp = new ListNode(res);
+            temp->next = header->next;
+            header->next = temp;
+        }
+        
+        return header->next;
+    }
+// 用list也行，就是有各种push_back, pop_top啥的
+    ListNode* addTwoNumbers2(ListNode* l1, ListNode* l2) {
         list<int> n1;
         list<int> n2;
         ListNode* ans = new ListNode(0);
@@ -92,6 +141,13 @@ int main() {
     while (ans){
         cout << ans->val << ',';
         ans = ans->next;
+    }
+    cout << "\n";
+
+    ListNode* ans2 = s.addTwoNumbers2(lists[0], lists[1]);
+    while (ans2){
+        cout << ans2->val << ',';
+        ans2 = ans2->next;
     }
     cout << "\n";
 }

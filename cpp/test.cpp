@@ -1,4 +1,5 @@
 #include "header.h"
+#include <typeinfo>
 using namespace std;
 
 struct Triangle {  // 习惯: struct start with capital letter
@@ -9,6 +10,13 @@ struct Triangle {  // 习惯: struct start with capital letter
 bool compare_x (vector<int> &v1, vector<int> &v2) {
   return (v1[0] < v2[0]);
 }
+
+struct ListNode {
+  int val;
+  ListNode* next;
+  ListNode();
+  ListNode(int x): val(x), next(nullptr) {}
+};
 
 int main(){
     int  var;
@@ -85,4 +93,21 @@ int main(){
     vector< vector<int> > v = {{3,9,10}, {2,7,15}, {5,12,12}, {15,20,10}};
     sort(v.begin(), v.end(), compare_x);
     cout << v[0][0] << '\n';
+
+    int a[2] = {1, 2};
+    cout << a << '\n';
+    cout << *begin(a) << '\n';
+    cout << *(end(a)-1) << '\n';
+    cout << *(end(a)) << '\n';  // nullptr
+
+    array<int, 2> x = {10,20};
+    cout << *x.begin() << '\n';
+    
+    int n = 5;
+    cout << n/6 << '\n';
+
+    ListNode* ans;
+    cout << (ans == nullptr) << '\n';
+
+    cout << typeid(pow(10,2)).name() << '\n';
 }

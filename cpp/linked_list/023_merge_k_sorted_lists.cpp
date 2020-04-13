@@ -24,7 +24,7 @@ public:
                 l = l->next;
             }        
         }
-        sort(q.begin(),q.end());
+        sort(q.begin(),q.end());  // nlog_2(n)
         int m = q.size();
         for (int i = 0; i < m; i++) {
             // new： 为变量请求新内存， 返回地址
